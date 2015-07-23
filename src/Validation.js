@@ -4,7 +4,7 @@ import Filter from 'lodash.filter';
 import ObjectPath from 'object-path';
 
 const Validation = (ComposedComponent) => {
-  class ValidationComponent extends ComposedComponent {
+  return class ValidationComponent extends ComposedComponent {
     constructor(props) {
       super(props);
       this.state.validation = {
@@ -88,9 +88,10 @@ const Validation = (ComposedComponent) => {
       return className.join(' ');
     };
 
-    renderValidationMessages = (path, className = 'help-block') => {
+    renderValidationMessages = (path, className = 'help-block', onlyFirst = true) => {
       let errors = this.getValidationMessages(path);
       if (errors.length !== 0 && this.isDirty(path)) {
+        errors = onlyFirst ? [errors[0]] : errors;
         let html = errors.map(function (error, index) {
           return (<div key={error.path + index}>{error.message}</div>);
         });
@@ -113,8 +114,7 @@ const Validation = (ComposedComponent) => {
         this.setState(state);
       }
     };
-  }
-  return ValidationComponent;
+  };
 };
 
 export default Validation;
