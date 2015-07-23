@@ -1,6 +1,7 @@
 import React from 'react';
 import Joi from 'joi';
 import Filter from 'lodash.filter';
+import Result from 'lodash.result';
 import ObjectPath from 'object-path';
 
 const Validation = (ComposedComponent) => {
@@ -15,10 +16,12 @@ const Validation = (ComposedComponent) => {
     }
 
     validate = (path) => {
-      Joi.validate(this.state, this.schema, {
+      let validationValue = Result(this, 'validationValue', this.state);
+      Joi.validate(validationValue, this.validationSchema, {
         abortEarly: false,
         convert: false,
-        allowUnknown: true
+        allowUnknown: true,
+        stripUnknown: true
       }, (error, value) => {
         let validation = ObjectPath.get(this.state, 'validation', {});
         validation.errors = (error && error.details) ? error.details : [];

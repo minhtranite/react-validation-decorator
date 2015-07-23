@@ -7,7 +7,7 @@ import Joi from 'joi';
     name: React.PropTypes.string
   };
 
-  schema = Joi.object().keys({
+  validationSchema = Joi.object().keys({
     name: Joi.string().required().label('Name'),
     email: Joi.string().email().required().label('Email').label('Email'),
     password: Joi.string().min(3).max(30).label('Password'),
@@ -92,6 +92,9 @@ import Joi from 'joi';
         <button className='btn btn-primary' onClick={this.handleSubmit}
           disabled={!this.isDirty() || !this.isValid()}>Submit
         </button>
+        <hr/>
+        <h3>State:</h3>
+        <pre>{JSON.stringify(this.state, undefined, 4)}</pre>
       </form>
     );
   }
