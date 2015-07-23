@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-import Component from '../src/Component.js';
+import Component from './components/Component.js';
 
 require('./bower_components/bootstrap-customize/css/bootstrap.css');
 require('./assets/styles/app.scss');

@@ -6,7 +6,7 @@ describe('Component', function () {
   var Component, component;
 
   beforeEach(function () {
-    Component = require('../../../src/Component');
+    Component = require('../../../example/components/Component');
     component = TestUtils.renderIntoDocument(
       <Component/>
     );

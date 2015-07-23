@@ -155,7 +155,11 @@ module.exports = function (options) {
       failOnError: options.failOnError,
       emitError: options.failOnError
     },
-    debug: options.debug
+    debug: options.debug,
+    node: {
+      net: 'mock',
+      dns: 'mock'
+    }
   };
 
   if (options.devTool) {
