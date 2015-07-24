@@ -1,4 +1,4 @@
-# React Validation
+# React Validation Decorator
 
 Validation decorator for ReactJS base on [joi](https://github.com/hapijs/joi).
 
@@ -317,6 +317,11 @@ node: {
 ## Todos
 
 ## History
+
+### 0.1.4
+- Change default options.
+- Fix `isValid`, `getValidationMessages` method.
+- Method `getValidationValue` will return clone deep of validation value.
 
 ### 0.1.3
 - Fix process dirty.

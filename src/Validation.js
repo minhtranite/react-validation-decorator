@@ -4,6 +4,8 @@ import Filter from 'lodash.filter';
 import Result from 'lodash.result';
 import ObjectPath from 'object-path';
 import Merge from 'lodash.merge';
+import CloneDeep from 'lodash.clonedeep';
+import StartsWith from 'lodash.startswith';
 
 const Validation = (ComposedComponent) => {
   return class ValidationComponent extends ComposedComponent {
@@ -17,12 +19,14 @@ const Validation = (ComposedComponent) => {
     }
 
     validate = (path) => {
-      let validationValue = Result(this, 'validationValue', this.state);
+      let validationValue = CloneDeep(Result(this, 'validationValue', this.state));
+      if (typeof validationValue === 'object' && validationValue.hasOwnProperty('validation')) {
+        delete validationValue.validation;
+      }
       let validationSchema = Result(this, 'validationSchema');
       let validationOptions = Merge({
         abortEarly: false,
-        allowUnknown: true,
-        stripUnknown: true
+        allowUnknown: true
       }, Result(this, 'validationOptions', {}));
       Joi.validate(validationValue, validationSchema, validationOptions, (error, value) => {
         let validation = ObjectPath.get(this.state, 'validation', {});
@@ -55,7 +59,7 @@ const Validation = (ComposedComponent) => {
     isValid = (path) => {
       let errors = ObjectPath.get(this.state, 'validation.errors', []);
       if (path) {
-        errors = Filter(errors, (error) => error.path === path);
+        errors = Filter(errors, (error) => (error.path === path || StartsWith(error.path, path + '.')));
       }
       return errors.length === 0;
     };
@@ -71,13 +75,13 @@ const Validation = (ComposedComponent) => {
     getValidationMessages = (path) => {
       let errors = ObjectPath.get(this.state, 'validation.errors', []);
       if (path) {
-        errors = Filter(errors, (error) => error.path === path);
+        errors = Filter(errors, (error) => (error.path === path || StartsWith(error.path, path + '.')));
       }
       return errors;
     };
 
     getValidationValue = () => {
-      return ObjectPath.get(this.state, 'validation.value');
+      return CloneDeep(ObjectPath.get(this.state, 'validation.value'));
     };
 
     resetValidation = () => {
