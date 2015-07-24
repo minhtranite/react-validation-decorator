@@ -1,12 +1,14 @@
 {
-  "name": "react-component-starter",
+  "name": "react-validation",
   "version": "0.1.0",
-  "description": "React component.",
+  "description": "Validation decorator for ReactJS base on joi.",
   "main": "lib/Validation.js",
   "keywords": [
     "react-component",
     "react",
-    "component"
+    "component",
+    "validation",
+    "form validate"
   ],
   "license": "MIT",
   "ignore": [
