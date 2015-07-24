@@ -318,6 +318,9 @@ node: {
 
 ## History
 
+### 0.1.3
+- Fix process dirty.
+
 ### 0.1.2
 - Rename to `react-validation-decorator`
 
