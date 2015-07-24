@@ -193,6 +193,24 @@ validationValue = () => {
 };
 ```
 
+### `validationOptions`
+- is [Joi](https://github.com/hapijs/joi#validatevalue-schema-options-callback) options.
+- can be defined as `object` or `function`.
+
+```js
+// Defined as object
+validationOptions = {
+  convert: false
+};
+
+// Defined as function
+validationOptions = () => {
+	return {
+  	convert: false
+  };
+}
+```
+
 ### `validate(path)`
 - Validates `validationValue` using the given `validationSchema`.
 - Affter it called `isDirty(path)` will return `true`.
@@ -299,3 +317,10 @@ node: {
 ## Todos
 
 ## History
+
+### 0.1.1
+- Add `validationOptions`.
+- Update example.
+
+### 0.1.0
+- First release

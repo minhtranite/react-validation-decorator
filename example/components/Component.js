@@ -10,6 +10,7 @@ import Joi from 'joi';
   validationSchema = Joi.object().keys({
     name: Joi.string().required().label('Name'),
     email: Joi.string().email().required().label('Email').label('Email'),
+    age: Joi.number().min(18).required().label('Age'),
     password: Joi.string().min(3).max(30).label('Password'),
     verifyPassword: Joi.string().valid(Joi.ref('password')).options({
       language: {
@@ -35,6 +36,14 @@ import Joi from 'joi';
       email: e.target.value
     }, () => {
       this.validate('email');
+    });
+  };
+
+  handleAgeChange = (e) => {
+    this.setState({
+      age: e.target.value
+    }, () => {
+      this.validate('age');
     });
   };
 
@@ -74,6 +83,13 @@ import Joi from 'joi';
             value={this.state.email}
             onChange={this.handleEmailChange}/>
           {this.renderValidationMessages('email')}
+        </div>
+        <div className={this.getValidationClassName('age')}>
+          <label className='control-label'>Age</label>
+          <input type='text' className='form-control'
+            value={this.state.age}
+            onChange={this.handleAgeChange}/>
+          {this.renderValidationMessages('age')}
         </div>
         <div className={this.getValidationClassName('password')}>
           <label className='control-label'>Password</label>

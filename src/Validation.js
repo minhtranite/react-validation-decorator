@@ -3,6 +3,7 @@ import Joi from 'joi';
 import Filter from 'lodash.filter';
 import Result from 'lodash.result';
 import ObjectPath from 'object-path';
+import Merge from 'lodash.merge';
 
 const Validation = (ComposedComponent) => {
   return class ValidationComponent extends ComposedComponent {
@@ -17,12 +18,13 @@ const Validation = (ComposedComponent) => {
 
     validate = (path) => {
       let validationValue = Result(this, 'validationValue', this.state);
-      Joi.validate(validationValue, this.validationSchema, {
+      let validationSchema = Result(this, 'validationSchema');
+      let validationOptions = Merge({
         abortEarly: false,
-        convert: false,
         allowUnknown: true,
         stripUnknown: true
-      }, (error, value) => {
+      }, Result(this, 'validationOptions', {}));
+      Joi.validate(validationValue, validationSchema, validationOptions, (error, value) => {
         let validation = ObjectPath.get(this.state, 'validation', {});
         validation.errors = (error && error.details) ? error.details : [];
         validation.value = value;
