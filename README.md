@@ -2,12 +2,12 @@
 
 Validation decorator for ReactJS base on [joi](https://github.com/hapijs/joi).
 
-[Demo](http://vn38minhtran.github.io/react-validation)
+[Demo](http://vn38minhtran.github.io/react-validation-decorator)
 
 ## Installation
 
 ```bash
-npm install --save react-validation
+npm install --save react-validation-decorator
 ```
 
 ## Example
@@ -16,7 +16,7 @@ npm install --save react-validation
 
 ```js
 import React from 'react';
-import Validation from 'react-validation';
+import Validation from 'react-validation-decorator';
 import Joi from 'joi';
 
 @Validation class Component extends React.Component {
@@ -317,6 +317,9 @@ node: {
 ## Todos
 
 ## History
+
+### 0.1.2
+- Rename to `react-validation-decorator`
 
 ### 0.1.1
 - Add `validationOptions`.

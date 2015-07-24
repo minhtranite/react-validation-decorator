@@ -1,6 +1,6 @@
 {
-  "name": "react-validation",
-  "version": "0.1.1",
+  "name": "react-validation-decorator",
+  "version": "0.1.2",
   "description": "Validation decorator for ReactJS base on joi.",
   "main": "lib/Validation.js",
   "scripts": {
@@ -70,12 +70,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vn38minhtran/react-validation.git"
+    "url": "https://github.com/vn38minhtran/react-validation-decorator.git"
   },
   "author": "Minh Tran",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vn38minhtran/react-validation/issues"
+    "url": "https://github.com/vn38minhtran/react-validation-decorator/issues"
   },
-  "homepage": "https://github.com/vn38minhtran/react-validation"
+  "homepage": "https://github.com/vn38minhtran/react-validation-decorator"
 }
