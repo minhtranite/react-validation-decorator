@@ -28,9 +28,17 @@ const Validation = (ComposedComponent) => {
         let validation = ObjectPath.get(this.state, 'validation', {});
         validation.errors = (error && error.details) ? error.details : [];
         validation.value = value;
-        if (path && validation.dirty.indexOf(path) === -1) {
-          validation.dirty.push(path);
-        }
+        let pushDirty = (p, dirtyArr = []) => {
+          if (p && dirtyArr.indexOf(p) === -1) {
+            dirtyArr.push(p);
+          }
+          let pArr = p.split('.');
+          if (pArr.length > 1) {
+            pArr.splice(-1, 1);
+            pushDirty(pArr.join('.'), dirtyArr);
+          }
+        };
+        pushDirty(path, validation.dirty);
         this.setState({
           validation: validation
         });
