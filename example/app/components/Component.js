@@ -1,5 +1,5 @@
 import React from 'react';
-import Validation from '../../src/Validation.js';
+import Validation from 'react-validation-decorator';
 import Joi from 'joi';
 
 @Validation class Component extends React.Component {

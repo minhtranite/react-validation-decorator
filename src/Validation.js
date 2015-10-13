@@ -9,8 +9,8 @@ import StartsWith from 'lodash.startswith';
 
 const Validation = (ComposedComponent) => {
   return class ValidationComponent extends ComposedComponent {
-    constructor(props) {
-      super(props);
+    constructor(props, context) {
+      super(props, context);
       this.state.validation = {
         dirty: [],
         errors: [],
@@ -84,14 +84,24 @@ const Validation = (ComposedComponent) => {
       return CloneDeep(ObjectPath.get(this.state, 'validation.value'));
     };
 
-    resetValidation = () => {
-      this.setState({
-        validation: {
-          dirty: [],
-          errors: [],
-          value: null
-        }
-      });
+    resetValidation = (callback) => {
+      if (callback) {
+        this.setState({
+          validation: {
+            dirty: [],
+            errors: [],
+            value: null
+          }
+        }, callback);
+      } else {
+        this.setState({
+          validation: {
+            dirty: [],
+            errors: [],
+            value: null
+          }
+        });
+      }
     };
 
     getValidationClassName = (path, successClass = 'has-success', errorClass = 'has-error', defaultClass = 'form-group') => {

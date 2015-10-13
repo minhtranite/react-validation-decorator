@@ -255,7 +255,7 @@ If `path` is defined return error details of `path` other while return all error
 
 Return validated value.
 
-### `resetValidation()`
+### `resetValidation([callback])`
 
 Reset validation.
 
