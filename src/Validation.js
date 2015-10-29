@@ -18,7 +18,7 @@ const Validation = (ComposedComponent) => {
       };
     }
 
-    validate = (path) => {
+    validate = (path, callback) => {
       let validationValue = CloneDeep(Result(this, 'validationValue', this.state));
       if (typeof validationValue === 'object' && validationValue.hasOwnProperty('validation')) {
         delete validationValue.validation;
@@ -43,9 +43,15 @@ const Validation = (ComposedComponent) => {
           }
         };
         pushDirty(path, validation.dirty);
-        this.setState({
-          validation: validation
-        });
+        if (callback) {
+          this.setState({
+            validation: validation
+          }, callback);
+        } else {
+          this.setState({
+            validation: validation
+          });
+        }
       });
     };
 

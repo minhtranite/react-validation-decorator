@@ -211,9 +211,9 @@ validationOptions = () => {
 }
 ```
 
-### `validate(path)`
+### `validate(path, [callback])`
 - Validates `validationValue` using the given `validationSchema`.
-- Affter it called `isDirty(path)` will return `true`.
+- After it called `isDirty(path)` will return `true`.
 
 ```js
 handleNameChange = (e) => {
