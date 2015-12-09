@@ -6,11 +6,19 @@ Validation decorator for ReactJS base on [joi](https://github.com/hapijs/joi).
 
 ## Installation
 
+### NPM
+
 ```bash
 npm install --save react-validation-decorator
 ```
 
-## Example
+### Bower
+
+```bash
+bower install --save react-validation-decorator
+```
+
+## Usage
 
 ### With decorator:
 
@@ -143,7 +151,21 @@ var Component = React.createClass({
 module.exports = Validation(Component);
 ```
 
-## Usage
+### UMD
+
+```html
+<script src="path/to/react-validation-decorator/dist/react-validation-decorator.js"></script>
+```
+
+```js
+//ES2015
+const {Validation, Joi} = window.ReactValidationDecorator;
+// Or
+var Validation = window.ReactValidationDecorator.Validation;
+var Joi = window.ReactValidationDecorator.Joi;
+```
+
+## API
 
 ### `validationSchema`
 
