@@ -1,8 +1,8 @@
 import React from 'react';
-import Validation from 'react-validation-decorator';
-import Joi from 'joi';
+import {Validation, Joi} from 'react-validation-decorator';
 
-@Validation class Component extends React.Component {
+@Validation
+class Component extends React.Component {
   static propTypes = {
     name: React.PropTypes.string
   };
@@ -110,7 +110,7 @@ import Joi from 'joi';
         </button>
         <hr/>
         <h3>State:</h3>
-        <pre>{JSON.stringify(this.state, undefined, 4)}</pre>
+        <pre>{JSON.stringify(this.state, null, 4)}</pre>
       </form>
     );
   }

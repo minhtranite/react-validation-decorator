@@ -16,10 +16,10 @@ npm install --save react-validation-decorator
 
 ```js
 import React from 'react';
-import Validation from 'react-validation-decorator';
-import Joi from 'joi';
+import {Validation, Joi} from 'react-validation-decorator';
 
-@Validation class Component extends React.Component {
+@Validation 
+class Component extends React.Component {
   validationSchema = Joi.object().keys({
     name: Joi.string().required().label('Name'),
     email: Joi.string().email().required().label('Email').label('Email'),
@@ -119,9 +119,9 @@ export default Component;
 ### Without decorator:
 
 ```js
-...
+//...
 var Component = React.createClass({
-  ...
+  //...
   validationSchema: Joi.object().keys({
     name: Joi.string().required().label('Name'),
     email: Joi.string().email().required().label('Email').label('Email'),
@@ -137,7 +137,7 @@ var Component = React.createClass({
   getInitialState: function () {
     return {};
   },
-  ...
+  //...
 });
 
 module.exports = Validation(Component);
@@ -280,14 +280,14 @@ Render validation messages, if `onlyFirst == false` it will render all messages 
 ### `updateState(newState, [callback])`
 
 ```js
-...
+//...
 state = {
 	user: {
   	name: 'John',
     age: 30
   }
 };
-...
+//...
 
 this.updateState({
 	'user.name': 'John smith'
@@ -302,36 +302,14 @@ See [object-path](https://github.com/mariocasciaro/object-path).
 
 ```js
 // webpack.config.js
-...
+//...
 module.exports = {
-...
+//...
 node: {
   net: 'mock',
   dns: 'mock'
 }
-...
+//...
 };
-...
+//...
 ```
-
-## Todos
-
-## History
-
-### 0.1.4
-- Change default options.
-- Fix `isValid`, `getValidationMessages` method.
-- Method `getValidationValue` will return clone deep of validation value.
-
-### 0.1.3
-- Fix process dirty.
-
-### 0.1.2
-- Rename to `react-validation-decorator`
-
-### 0.1.1
-- Add `validationOptions`.
-- Update example.
-
-### 0.1.0
-- First release

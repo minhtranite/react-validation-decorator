@@ -1,6 +1,6 @@
 {
   "name": "react-validation-decorator",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Validation decorator for ReactJS base on joi.",
   "main": "lib/index.js",
   "keywords": [
