@@ -133,7 +133,7 @@ const Validation = (ComposedComponent) => {
       return null;
     };
 
-    updateState = function (newState, callback) {
+    updateState = (newState, callback) => {
       let state = this.state;
       let stateModel = ObjectPath(state);
       for (let property in newState) {
