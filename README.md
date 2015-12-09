@@ -165,6 +165,8 @@ var Validation = window.ReactValidationDecorator.Validation;
 var Joi = window.ReactValidationDecorator.Joi;
 ```
 
+Example [here](http://codepen.io/vn38minhtran/pen/gPbJNx)
+
 ## API
 
 ### `validationSchema`
