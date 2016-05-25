@@ -15,7 +15,7 @@
     "form validate"
   ],
   "peerDependencies": {
-    "react": "0.13 - 0.14"
+    "react": "0.13 - 15"
   },
   "dependencies": {
     "joi": "^6.10.1",
