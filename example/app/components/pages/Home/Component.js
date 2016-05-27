@@ -69,43 +69,43 @@ class Component extends React.Component {
 
   render() {
     return (
-      <form autoComplete='off'>
+      <form autoComplete={false}>
         <div className={this.getValidationClassName('name')}>
-          <label className='control-label'>Name</label>
-          <input type='text' className='form-control'
+          <label className="control-label">Name</label>
+          <input type="text" className="form-control"
             value={this.state.name}
             onChange={this.handleNameChange}/>
           {this.renderValidationMessages('name')}
         </div>
         <div className={this.getValidationClassName('email')}>
-          <label className='control-label'>Email</label>
-          <input type='text' className='form-control'
+          <label className="control-label">Email</label>
+          <input type="text" className="form-control"
             value={this.state.email}
             onChange={this.handleEmailChange}/>
           {this.renderValidationMessages('email')}
         </div>
         <div className={this.getValidationClassName('age')}>
-          <label className='control-label'>Age</label>
-          <input type='text' className='form-control'
+          <label className="control-label">Age</label>
+          <input type="text" className="form-control"
             value={this.state.age}
             onChange={this.handleAgeChange}/>
           {this.renderValidationMessages('age')}
         </div>
         <div className={this.getValidationClassName('password')}>
-          <label className='control-label'>Password</label>
-          <input type='password' className='form-control'
+          <label className="control-label">Password</label>
+          <input type="password" className="form-control"
             value={this.state.password}
             onChange={this.handlePasswordChange}/>
           {this.renderValidationMessages('password')}
         </div>
         <div className={this.getValidationClassName('verifyPassword')}>
-          <label className='control-label'>Verify Password</label>
-          <input type='password' className='form-control'
+          <label className="control-label">Verify Password</label>
+          <input type="password" className="form-control"
             value={this.state.verifyPassword}
             onChange={this.handleVerifyPasswordChange}/>
           {this.renderValidationMessages('verifyPassword')}
         </div>
-        <button className='btn btn-primary' onClick={this.handleSubmit}
+        <button className="btn btn-primary" onClick={this.handleSubmit}
           disabled={!this.isDirty() || !this.isValid()}>Submit
         </button>
         <hr/>
