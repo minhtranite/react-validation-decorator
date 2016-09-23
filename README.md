@@ -2,7 +2,7 @@
 
 Validation decorator for ReactJS base on [joi](https://github.com/hapijs/joi).
 
-[Demo](http://vn38minhtran.github.io/react-validation-decorator)
+[Demo](http://minhtranite.github.io/react-validation-decorator)
 
 ## Installation
 
